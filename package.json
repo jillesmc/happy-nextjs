@@ -1,17 +1,18 @@
 {
-  "name": "with-typescript-eslint-jest",
-  "author": "@erikdstock",
+  "name": "happy",
+  "author": "@jillesmc",
   "license": "MIT",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
-    "format": "prettier --write .",
-    "lint": "eslint . --ext ts --ext tsx --ext js",
-    "test": "jest",
-    "test-all": "yarn lint && yarn type-check && yarn test"
+    "format": "prettier --write src/**/*.{js,ts,tsx}",
+    "lint": "eslint 'src/**/*.{ts,tsx,js,jsx}' --fix",
+    "test": "jest --passWithNoTests",
+    "test-all": "yarn lint && yarn type-check && yarn test",
+    "clean": "npx del-cli .next/"
   },
   "husky": {
     "hooks": {
@@ -26,26 +27,33 @@
     ]
   },
   "dependencies": {
-    "next": "latest",
+    "next": "^9.5.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@testing-library/react": "^10.0.1",
-    "@types/jest": "^25.1.4",
-    "@types/node": "^13.9.5",
+    "@testing-library/react": "^11.0.4",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.8",
     "@types/react": "^16.9.27",
-    "@typescript-eslint/eslint-plugin": "^2.25.0",
-    "@typescript-eslint/parser": "^2.25.0",
-    "babel-jest": "^25.2.3",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-react": "^7.19.0",
-    "husky": "^4.2.3",
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/parser": "^4.4.1",
+    "babel-jest": "^26.5.2",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "husky": "^4.3.0",
     "jest": "^25.2.3",
-    "jest-watch-typeahead": "^0.5.0",
-    "lint-staged": "^10.0.10",
-    "prettier": "^2.0.2",
-    "typescript": "^3.8.3"
+    "jest-watch-typeahead": "^0.6.1",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.3"
   }
 }
